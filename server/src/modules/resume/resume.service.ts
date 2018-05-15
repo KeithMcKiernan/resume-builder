@@ -1,4 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { RESUME_MODEL_TOKEN } from 'app.constants';
 import { CreateResumeDto } from './dto/create-resume.dto';
 import { ResumeSchema } from './schemas/resume.schema';
 import { IResume } from './interfaces/resume.interface';
@@ -8,7 +9,7 @@ import { Model } from 'mongoose';
 export class ResumeService {
 
   constructor(
-    @Inject('ResumeModelToken')
+    @Inject(RESUME_MODEL_TOKEN)
     private readonly _resumeModel: Model<IResume>,
   ) { }
 

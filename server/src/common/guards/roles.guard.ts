@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export type canActivate = boolean | Promise<boolean> | Observable<boolean>;
 
 @Injectable()
-export class RoleGuard implements CanActivate {
+export class RolesGuard implements CanActivate {
 
   constructor(private readonly _reflector: Reflector) { }
 
@@ -14,7 +14,7 @@ export class RoleGuard implements CanActivate {
     if (!roles) return true;
 
     const { user } = context.switchToHttp().getRequest();
-    const hasRole = () => user.roles.some((role: any) => roles.indexOf(role));
+    const hasRole = () => !!user.roles.find(role => !!roles.find(item => item === role));
     return user && user.roles && hasRole();
   }
 }

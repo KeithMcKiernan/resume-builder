@@ -1,7 +1,13 @@
-import { RequestMapping, RequestMethod, Request, Response, Body, Controller } from '@nestjs/common';
+import { RequestMapping, RequestMethod, Request, Response } from '@nestjs/common';
+import { Body, Controller, UseGuards, UseInterceptors } from '@nestjs/common';
+import { LoggingInterceptor } from './../../common/interceptors';
+import { Roles } from './../../common/decorators/roles.decorator';
+import { RolesGuard } from './../../common/guards/roles.guard';
 import { ResumeService } from './resume.service';
 
 @Controller('api/resumes')
+@UseGuards(RolesGuard)
+@UseInterceptors(LoggingInterceptor)
 export class ResumeController {
 
   constructor(private readonly _resumeService: ResumeService) { }
@@ -19,6 +25,7 @@ export class ResumeController {
     res.status(200).json(message);
   }
 
+  @Roles('admin')
   @RequestMapping({ method: RequestMethod.POST })
   public async createResume(@Response() res, @Body() body) {
     const message = await this._resumeService.createResume(body);
@@ -32,6 +39,7 @@ export class ResumeController {
     res.status(200).json({ message: 'Successfully updated resume!!' });
   }
 
+  @Roles('admin')
   @RequestMapping({ method: RequestMethod.DELETE, path: '/:id' })
   public async deleteResume(@Request() req, @Response() res) {
     const { id } = req.params;
