@@ -12,11 +12,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  public async validate(email: any, password, done: () => {}) {
+  public async validate(payload: any, password, done: () => {}) {
     // return await this._authService.login(email, password);
   }
 }
-
-export const callback = (err, user, info) => {
-
-};

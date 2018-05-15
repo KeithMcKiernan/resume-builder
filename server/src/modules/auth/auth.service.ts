@@ -9,7 +9,7 @@ export class AuthService {
     const secretKey = 'secretkey';
     const user = { email: 'thisis@example.com' };
     const token = jwt.sign(user, secretKey, { expiresIn });
-    return await { expires_in: expiresIn, access_token: token };
+    return { expires_in: expiresIn, access_token: token };
   }
 
   public async validateUser() {
