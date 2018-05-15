@@ -1,8 +1,9 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "nestjs-resume-builder-server",
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "NestJS Resume Builder Server",
   "license": "MIT",
+  "author": "Keith McKiernan",
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
     "start": "nodemon ts-node -r tsconfig-paths/register src/main.ts",
@@ -14,13 +15,13 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^4.6.1",
-    "@nestjs/core": "^4.6.1",
-    "@nestjs/microservices": "^4.6.1",
+    "@nestjs/common": "^5.0.0",
+    "@nestjs/core": "^5.0.0",
+    "@nestjs/microservices": "^5.0.0",
     "@nestjs/mongoose": "^3.0.1",
     "@nestjs/passport": "^1.0.10",
-    "@nestjs/testing": "^4.6.1",
-    "@nestjs/websockets": "^4.6.1",
+    "@nestjs/testing": "^5.0.0",
+    "@nestjs/websockets": "^5.0.0",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.17",
     "passport": "^0.4.0",
@@ -28,8 +29,8 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^5.4.0",
-    "typescript": "^2.6.2"
+    "rxjs": "^6.0.0",
+    "typescript": "^2.8.3"
   },
   "devDependencies": {
     "@types/express": "^4.11.1",

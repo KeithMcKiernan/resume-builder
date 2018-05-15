@@ -1,6 +1,6 @@
-import { Component } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
-@Component()
+@Injectable()
 export class UserService {
 
   constructor(private readonly _cryptoService: any) { }

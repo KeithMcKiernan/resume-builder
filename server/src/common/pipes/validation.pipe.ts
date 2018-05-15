@@ -1,6 +1,6 @@
-import { Pipe, PipeTransform, ArgumentMetadata } from '@nestjs/common';
+import { Injectable, PipeTransform, ArgumentMetadata } from '@nestjs/common';
 
-@Pipe()
+@Injectable()
 export class ValidationPipe implements PipeTransform<any> {
   public async transform(value, metadata: ArgumentMetadata) {
     const { metatype } = metadata;

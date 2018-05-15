@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as classnames from 'classnames';
 import * as React from 'react';
 import './Sidebar.css';
@@ -10,6 +11,11 @@ class Sidebar extends React.PureComponent<ISidebar, {}> {
 
   constructor(props: ISidebar) {
     super(props);
+  }
+
+  public async getRepos() {
+    // tslint:disable-next-line:no-console
+    console.log(await axios.get('https://api.github.com/users/KeithMcKiernan/repos'));
   }
 
   public get sidebarClasses() {

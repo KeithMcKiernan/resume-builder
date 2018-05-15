@@ -1,10 +1,10 @@
-import { Inject, Component } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateResumeDto } from './dto/create-resume.dto';
 import { ResumeSchema } from './schemas/resume.schema';
 import { IResume } from './interfaces/resume.interface';
 import { Model } from 'mongoose';
 
-@Component()
+@Injectable()
 export class ResumeService {
 
   constructor(
