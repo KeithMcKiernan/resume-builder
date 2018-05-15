@@ -12,7 +12,12 @@
     "sourceMap": true,
     "allowJs": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["common/*"],
+      "@database/*": ["database/*"],
+      "@modules/*": ["modules/*"]
+    }
   },
   "include": [
     "src/**/*"

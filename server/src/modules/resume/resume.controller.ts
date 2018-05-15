@@ -1,8 +1,8 @@
-import { RequestMapping, RequestMethod, Request, Response } from '@nestjs/common';
+import { RequestMapping, RequestMethod, Request, Response, UploadedFile, FileInterceptor } from '@nestjs/common';
 import { Body, Controller, UseGuards, UseInterceptors } from '@nestjs/common';
-import { LoggingInterceptor } from './../../common/interceptors';
-import { Roles } from './../../common/decorators/roles.decorator';
-import { RolesGuard } from './../../common/guards/roles.guard';
+import { LoggingInterceptor } from '@common/interceptors';
+import { Roles } from '@common/decorators/roles.decorator';
+import { RolesGuard } from '@common/guards/roles.guard';
 import { ResumeService } from './resume.service';
 
 @Controller('api/resumes')
@@ -45,5 +45,12 @@ export class ResumeController {
     const { id } = req.params;
     const message = await this._resumeService.deleteResume(id);
     res.status(204).json({ message: 'Successfully deleted resume!!' });
+  }
+
+  @UseInterceptors(FileInterceptor('file'))
+  @RequestMapping({ method: RequestMethod.POST, path: '/upload' })
+  public uploadFile(@UploadedFile() file) {
+    console.log(file);
+    // @todo - handle file uploads of existing resumes.
   }
 }
