@@ -1,0 +1,92 @@
+.tabs {
+  list-style: none;
+  padding: 0;
+}
+
+.tabs.placement-start {
+  justify-content: flex-start;
+  align-items: safe flex-start;
+}
+
+.tabs.placement-center {
+  justify-content: center;
+  align-items: safe center;
+}
+
+.tabs.placement-end {
+  justify-content: flex-end;
+  align-items: safe flex-end;
+}
+
+.tabs.horizontal {
+  display: flex;
+  flex-direction: row;
+  box-shadow: rgba(26, 57, 96, 0.1) 0 -1px 0 0 inset;
+}
+
+.tabs.vertical {
+  display: inline-flex;
+  flex-direction: column;
+  box-shadow: rgba(26, 57, 96, 0.1) -1px 0 0 0;
+}
+
+.scrollable {
+  overflow: auto;
+}
+
+.scrollable li {
+  white-space: nowrap;
+}
+
+.scrollable::-webkit-scrollbar { 
+  display: none; 
+}
+
+.tabs li {
+  padding: 12px 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.tabs li.active {
+  color: blue;
+}
+
+.tabs li.disabled {
+  pointer-events: none;
+  color: hsla(214, 50%, 22%, 0.26);
+}
+
+.tabs li.active:before {
+  opacity: .15;
+  transition: .15s .02s transform, .8s .17s opacity;
+}
+
+.tabs li.active:after {
+  content: '';
+  position: absolute;
+  display: block;
+  max-width: 80%;
+  background: blue;
+  max-height: 80%;
+  transition: .14s transform cubic-bezier(.12, .32, .54, 1);
+  will-change: transform;
+}
+
+.tabs.horizontal li.active:after {
+  bottom: 0;
+  left: 50%;
+  width: 2.5em;
+  height: 2px;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) scale(1);
+}
+
+.tabs.vertical li.active:after {
+  left: 0;
+  bottom: 50%;
+  width: 2px;
+  height: 1.5em;
+  transform-origin: 100% 50%;
+  transform: translateY(50%) scale(1);
+}
