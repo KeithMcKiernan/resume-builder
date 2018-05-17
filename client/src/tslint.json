@@ -1,7 +1,9 @@
 {
     "extends": "../tslint.json",
     "rules": {
+        "no-output-on-prefix": false,
         "component-class-suffix": false,
+        "directive-class-suffix": false,
         "no-inferrable-types": false,
         "curly": false,
         "directive-selector": [
