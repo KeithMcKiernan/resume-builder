@@ -9,7 +9,7 @@ export class ClickOutside {
   @Output('clickedOutside')
   public clickedOutside = new EventEmitter<boolean | any>();
 
-  constructor(private _elementRef: ElementRef) { }
+  constructor(private readonly _elementRef: ElementRef) { }
 
   @HostListener('document:click', ['$event.target'])
   public onClickOutside(target: any) {
