@@ -1,6 +1,6 @@
 import { Base } from './base.model';
 
-export interface User extends Base {
+export interface IUser extends Base {
   name: string;
   email: string;
   website_url: string;
