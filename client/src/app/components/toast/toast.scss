@@ -1,0 +1,33 @@
+// @todo - use variables from global stylesheet instead 
+// of random colors scattered across the project.
+
+.toast {
+  position: relative;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: .15rem;
+  margin-bottom: 1rem;
+
+  &.toast-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+
+  &.toast-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  .close {
+    float: right;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+  }
+}
